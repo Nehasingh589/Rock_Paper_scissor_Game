@@ -1,0 +1,52 @@
+body{
+    background-image:linear-gradient(rgba(0, 0, 255, 0.367) , rgba(209, 154, 154, 0.597));
+    font-family:Arial, Helvetica, sans-serif ;
+    margin:0 ;
+    padding:0 ;
+    height: 100vh;
+}
+
+h1{
+    font-size:2rem ;
+    text-align: center;
+    padding-top:100px ;
+}
+
+p{
+    font-size:1.2rem ;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.buttons{
+    display:flex ;
+    justify-content:center ;
+}
+button{
+    border:none ;
+    font-size: 4rem;
+    margin:1rem 0.5rem;
+    padding:0.5rem ;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3 ease-in-out;
+}
+
+button:hover{
+    opacity:0.9 ;
+}
+#rock{
+  background-color:rgba(0, 0, 0, 0.862);  
+}
+#paper{
+    background-color:rgba(40, 106, 21, 0.922) ;
+}
+#scissors{
+    background-color:rgb(236, 34, 85) ;
+}
+#user-score{
+    color: blue;
+}
+#computer-score{
+color:red ;
+}
