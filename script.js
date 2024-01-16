@@ -1,38 +1,43 @@
-'use strict';
+"use strict";
 
-const buttons = document.querySelectorAll('.buttons');
+// const buttons = document.querySelectorAll(".buttons"); 
+const buttons = document.querySelectorAll(".buttons button")
 const resultEl = document.getElementById("result");
+const playerScoreEl = document.getElementById("user-score");
+const computerScoreEl = document.getElementById("computer-score");
+
+let playerScore = 0;
+let computerScore = 0;
 
 buttons.forEach((button) => {
-    button.addEventListener("click",() => {
-        const result = playRound(button.id , computerPlay());
-    //    console.log(result);
+  button.addEventListener("click", () => {
+    const result = playRound(button.id, computerPlay());
     resultEl.textContent = result;
-    });
+  });
 });
 
 function computerPlay() {
-    const choices = ["rock","paper","scissors"];
-    const randomChoices = Math.floor(Math.random() * choices.length);
-    return choices[randomChoices];
+  const choices = ["rock", "paper", "scissors"];
+  const randomChoiceIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomChoiceIndex];
 }
 
-function playRound(playerSelection , computerSelection) {
-if (playerSelection === computerSelection) {
-    return `It's a tie !`;
-}else if(
+function playRound(playerSelection, computerSelection) {
+  debugger;
+  if (playerSelection === computerSelection) {
+    return `It's a tie!`;
+  } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
-){
-    return `You win ${playerSelection} beats ${computerSelection}`;
-} else{
-    return `You lose ${computerSelection} beats ${playerSelection}`;
+  ) {
+    playerScore++;
+    playerScoreEl.textContent = playerScore;
+    return `You win! ${playerSelection} beats ${computerSelection}`;
+  } else {
+    computerScore++;
+    computerScoreEl.textContent = computerScore;
+    return `You lose! ${computerSelection} beats ${playerSelection}`;
+  }
 }
-}
-
-// return "You Win!" + playerSelection + " beats " + computerSelection;
-
-// return "You Lose! " + computerSelection + " beats " + playerSelection;
-
 
